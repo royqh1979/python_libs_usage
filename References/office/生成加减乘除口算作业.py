@@ -4,7 +4,7 @@ import win32com.client
 import random
 
 
-app = win32com.client.gencache.EnsureDispatch('Excel.Application')
+app = win32com.client.DispatchEx('Excel.Application')
 excel_constants = win32com.client.constants
 
 template_file = "g:/口算作业模板.xlsx"
@@ -12,9 +12,9 @@ out_dir = "g:\\"
 out_name = out_dir+"口算"
 
 max_number = 100
-ratio_sub = 0.05 #减法题的比例
-ratio_add = 0.05 #加法题的比例
-ratio_mul = 0.45 #乘法题的比例
+ratio_sub = 0.1 #减法题的比例
+ratio_add = 0.1 #加法题的比例
+ratio_mul = 0.1 #乘法题的比例
 
 ratio_carry = 0.8 # 进退位比例
 total_page = 30 # 总页数
@@ -78,9 +78,14 @@ for page in range(total_page):
                 total_mul += 1
             else:
                 # 生成除法
-                x = random.randint(2,9)
-                y = random.randint(2,9)
-                str = f"{x*y} ÷ {y}"
+                x1 = random.randint(2, 9)
+                x2 = random.randint(2, 9)
+                if random.random() < 0.1:
+                    y = 0
+                else:
+                    y = random.randint(1, x2 - 1)
+
+                str = f"{x1 * x2 + y} ÷ {x2}"
                 total_div += 1
             str = f"{str:>8s} ="
             workbook.ActiveSheet.Cells(row + row_start, col).Value=str
