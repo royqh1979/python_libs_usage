@@ -3,7 +3,6 @@ https:#codeincomplete.com/articles/javascript-racer-v1-straight/
 https:#github.com/jakesgordon/javascript-racer/
 """
 import time
-from dataclasses import dataclass
 from typing import List
 
 from PyQt5 import QtCore
@@ -17,7 +16,6 @@ class Segment:
     p2: Projection
     color: ColorObject
     looped:bool = False
-
 
 fps = 60  # how many 'update' frames per second
 step = 1 / fps  # how long is each frame (in seconds)
@@ -164,19 +162,17 @@ def main():
             while has_kb_msg():
                 key_message = get_key()
                 if key_message.key == QtCore.Qt.Key_Up:
-                    key_faster = True
+                    key_faster = ( key_message.type == QtCore.QEvent.KeyPress )
                 elif key_message.key == QtCore.Qt.Key_Down:
-                    key_slower = True
+                    key_slower = ( key_message.type == QtCore.QEvent.KeyPress )
                 elif key_message.key == QtCore.Qt.Key_Left:
-                    key_left = True
+                    key_left = ( key_message.type == QtCore.QEvent.KeyPress )
                 elif key_message.key == QtCore.Qt.Key_Right:
-                    key_right = True
+                    key_right = ( key_message.type == QtCore.QEvent.KeyPress )
             now = time.time()
 
             update(now-last_time)
             render()
             last_time = now
-        else:
-            print("shit")
 
 easy_run(main)

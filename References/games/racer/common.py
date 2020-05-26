@@ -9,6 +9,7 @@ from easygraphics import Image
 from easygraphics import *
 
 
+
 class UtilObject:
     pass
 
@@ -50,6 +51,7 @@ class ColorObject:
     lane: str
 
 
+
 @dataclass()
 class Rectangle:
     x: int
@@ -81,7 +83,7 @@ class Util:
         return datetime.datetime.now()
 
     @staticmethod
-    def percentRemainting(n, total):
+    def percent_remaining(n, total):
         return (n % total) / total
 
     @staticmethod
@@ -222,19 +224,19 @@ class Render:
         draw_polygon(x1 - w1 - r1, y1, x1 - w1, y1, x2 - w2, y2, x2 - w2 - r2, y2)
         draw_polygon(x1 + w1 + r1, y1, x1 + w1, y1, x2 + w2, y2, x2 + w2 + r2, y2)
         set_fill_color(color.road)
-        # draw_polygon(x1 - w1, y1, x1 + w1, y1, x2 + w2, y2, x2 - w2, y2)
+        draw_polygon(x1 - w1, y1, x1 + w1, y1, x2 + w2, y2, x2 - w2, y2)
 
-        # if color.lane is not None:
-        #     lane_w1 = w1 * 2 / lanes
-        #     lane_w2 = w2 * 2 / lanes
-        #     lane_x1 = x1 - w1 + lane_w1
-        #     lane_x2 = x2 - w2 + lane_w2
-        #     set_fill_color(color.lane)
-        #     for lane in range(1, lanes):
-        #         draw_polygon(lane_x1 - l1 / 2, y1, lane_x1 + l1 / 2, y1,
-        #                        lane_x2 + l2 / 2, y2, lane_x2 - l2 / 2, y2)
-        #         lane_x1 += lane_w1
-        #         lane_x2 += lane_w2
+        if color.lane is not None:
+            lane_w1 = w1 * 2 / lanes
+            lane_w2 = w2 * 2 / lanes
+            lane_x1 = x1 - w1 + lane_w1
+            lane_x2 = x2 - w2 + lane_w2
+            set_fill_color(color.lane)
+            for lane in range(1, lanes):
+                draw_polygon(lane_x1 - l1 / 2, y1, lane_x1 + l1 / 2, y1,
+                               lane_x2 + l2 / 2, y2, lane_x2 - l2 / 2, y2)
+                lane_x1 += lane_w1
+                lane_x2 += lane_w2
 
 
 class Game:
