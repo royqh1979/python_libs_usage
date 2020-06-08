@@ -1,7 +1,7 @@
-from easygraphics.dialog import get_string
 import random
 
-MAX_SCORES = [30,20,30,15,5]
+# MAX_SCORES = [30,20,30,15,5]
+MAX_SCORES = [30,25,10,5,30]
 
 def check_max_scores(MAX_SCORES):
     m = sum(MAX_SCORES)
@@ -9,7 +9,7 @@ def check_max_scores(MAX_SCORES):
         raise ValueError("总分必须为100")
 
 try:
-    score=int(get_string("请输入总分:"))
+    score=int(input("请输入总分:"))
 except:
     raise ValueError("总分必须为整数！")
 
