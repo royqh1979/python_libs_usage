@@ -12,7 +12,7 @@ out_name = out_dir+"竖式"
 
 max_number = 100
 ratio_sub = 0.5
-total_page = 1 # 总页数
+total_page = 50 # 总页数
 seciton_per_page = 1 #每页的小节数
 row_per_section = 8 #每页的行数
 col_per_section = 3 #每页的列数
