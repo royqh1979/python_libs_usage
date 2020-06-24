@@ -9,8 +9,10 @@ maine_month.index = pd.date_range(start="1996-01",periods=len(maine_month),freq=
 maine_annual = maine_month.resample("Y").mean()
 
 # 计算二月和八月平均失业率 和 总平均失业率的比值
+# 注意如何选取2月和8月的数据
 maine_feb=maine_month[maine_month.index.month==2].unemploy
 maine_aug=maine_month[maine_month.index.month==8].unemploy
+
 feb_ratio = np.mean(maine_feb) / np.mean(maine_month.unemploy)
 aug_ratio = np.mean(maine_aug) / np.mean(maine_month.unemploy)
 print(np.mean(maine_feb), np.mean(maine_aug), np.mean(maine_month.unemploy))
