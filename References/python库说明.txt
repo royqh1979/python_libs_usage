@@ -12,6 +12,9 @@ Pandas（表格、面板形数据、时间序列数据）
 Sympy（基于符号的数学（如多项式分解等））
 Scipy （NumPy基础上的数值计算库，积分）
 
+# 加速numpy计算
+numexpr
+
 
 带GPU加速的科学计算
 Cupy （兼容NumPy数组，数据放在显存中）
@@ -32,6 +35,7 @@ statmodels
 
 贝叶斯网络（贝叶斯推断）：
 bayespy
+PyMC
 
 运筹学（线性规划、整数规划）：
 pulp

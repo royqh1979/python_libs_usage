@@ -1,6 +1,15 @@
 import tensorflow as tf
 
-import tensorflow as tf
+#让tf不要一次性分配所有显存（性能会有影响，但是不容易出现无内存错误）
+# physical_devices = tf.config.list_physical_devices('GPU')
+# try:
+#     tf.config.experimental.set_virtual_device_configuration(
+#        physical_devices[0],
+#        [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=1024*6)])
+#     # tf.config.experimental.set_memory_growth(physical_devices[0], True)
+# except:
+#     # Invalid device or cannot modify virtual devices once initialized.
+#     pass
 
 mnist = tf.keras.datasets.mnist
 

@@ -31,7 +31,7 @@ x_cpu *= x_cpu
 x_cpu += x_cpu
 e = time.time()
 print(e - s)
-### CuPy and GPU
+## CuPy and GPU
 s = time.time()
 x_gpu *= 7
 x_gpu *= x_gpu
