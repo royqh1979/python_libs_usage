@@ -11,7 +11,7 @@ template_file = "g:/带余数除法口算作业模板.xlsx"
 out_dir = "g:\\"
 out_name = out_dir+"口算"
 
-total_page = 30 # 总页数
+total_page = 60 # 总页数
 seciton_per_page = 2 #每页的小节数
 row_per_section = 10 #每页的行数
 col_per_section = 3 #每页的列数

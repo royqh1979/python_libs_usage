@@ -5,9 +5,10 @@ import random
 
 
 app = win32com.client.gencache.EnsureDispatch('Excel.Application')
+# app = win32com.client.DispatchEx('Excel.Application')
 excel_constants = win32com.client.constants
 
-template_file = "g:/竖式作业模板.xlsx"
+template_file = "g:/3位数竖式加减法作业模板.xlsx"
 out_dir = "g:\\"
 out_name = out_dir+"竖式"
 
